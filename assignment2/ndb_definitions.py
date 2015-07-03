@@ -4,9 +4,9 @@ class Location(ndb.Model):
 	# Class that repesents pick up game locations
 	name = ndb.StringProperty(required=True)
 	comments = ndb.KeyProperty(repeated=True)
-	active = ndb.BooleanProperty(required=True)
-	image = ndb.BlobProperty(required=True)
-	rating = ndb.IntegerProperty(required=True)
+	active = ndb.BooleanProperty(required=False)
+	image = ndb.BlobProperty(required=False)
+	rating = ndb.IntegerProperty(required=False)
 
 class Author(ndb.Model):
 	# Class that represents users who author comments
