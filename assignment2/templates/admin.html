@@ -13,14 +13,20 @@
 				<input type='text' name='locationName' required>
 			</fieldset>
 			<fieldset>
-				<legend>Active</legend>
-				<input type='checkbox' name='locationActive' checked='checked'>
-				<legend>Inactive</legend>
-				<input type='checkbox' name='locationActive'>
+				<legend>Active Location?</legend>
+				<input type='checkbox' name='locationActive' checked='checked' value='active'>
 			</fieldset>
 			<fieldset>
 				<legend>Upload an image</legend>
 				<input type='file' name='image' required>
+			</fieldset>
+			<fieldset>
+				<legend>Star Rating</legend>
+				<input type='radio' name='rating' value='1' shape='star'>1
+				<input type='radio' name='rating' value='2'>2
+				<input type='radio' name='rating' value='3'>3
+				<input type='radio' name='rating' value='4'>4
+				<input type='radio' name='rating' value='5' checked='checked'>5
 			</fieldset>
 			<fieldset>
 				<legend>Add Location</legend>

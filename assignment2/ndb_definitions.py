@@ -6,6 +6,7 @@ class Location(ndb.Model):
 	#comments = ndb.KeyProperty(repeated=True)
 	active = ndb.BooleanProperty(required=True)
 	image = ndb.BlobProperty(required=True)
+	rating = ndb.IntegerProperty(required=True)
 
 class Author(ndb.Model):
 	# Class that represents users who author comments

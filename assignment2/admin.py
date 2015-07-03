@@ -22,7 +22,11 @@ class Admin(BaseHandler):
 			key = ndb.Key(Location, self.app.config.get('default-group'))
 			location = Location(parent = key)
 			location.name = self.request.get('locationName')
-			location.active = True
+			if self.request.get('locationActive') == 'active':
+				location.active = True
+			else:
+				location.active = False
+			location.rating = int(self.request.get('rating'))
 			location.image = str(icon_key)
 			location.put()
 			self.templateValues['message'] = 'Added location ' + location.name + '.'
