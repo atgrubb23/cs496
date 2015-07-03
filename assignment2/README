@@ -1,5 +1,5 @@
 For this assignment you will make a dynamic webpage that can store, edit and display data.
---------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 
 Requirements:
 
@@ -16,7 +16,7 @@ Users should be able to enter an edit mode (either on the same page or loaded on
 Edit mode should prepopulate all needed data. In other words, if I edit an item, do nothing but click 'save changes' nothing should happen to the item.
 
 Upon saving the object should have the same id but have updated information (if this is not possible on your platform, document why not).
---------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 
 Deliverables:
 
@@ -34,7 +34,7 @@ The results of executing your test plan (Successes should be a simple success, f
 Discuss how you used the idea of templating to display data.(1 or 2 paragraphs).
 
 Discuss if you had it to do over again, what changes you might make. (2 or 3 paragraphs).
---------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 
 Notes about future projects:
 
