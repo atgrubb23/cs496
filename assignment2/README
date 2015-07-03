@@ -1,0 +1,32 @@
+For this assignment you will make a dynamic webpage that can store, edit and display data.
+
+The requirements for this assignment are as follows:
+
+You should hose the page using a cloud based provider (public_html at OSU will not suffice)
+Users should be able to input data using different sorts of form controls. There should be at least 5 different input controls corresponding to 5 different properties. (See 4.10.5.1 (Links to an external site.) for a list of possible inputs)
+One such control should be a check-box
+Another should be a radio button
+The others are up to you
+Users should be able to view the data they entered in a state such that it cannot be changed. In other words a page to just 'view' the data.
+Users should be able to enter an edit mode (either on the same page or loaded on a different page) allowing them to change the data
+This edit mode should prepopulate all needed data. In other words, if I edit an item, do nothing but click 'save changes' nothing should happen to the item.
+Upon saving the object should have the same id but have updated information (if this is not possible on your platform, document why not)
+Deliverables:
+
+You should submit a PDF containing the following
+A URL to the live site
+A description of the site and what data can be saved (a paragraph or 2)
+A test plan to make sure it works as intended (I would guess about 25 test cases would cover something like this)
+This plan can be manual tests, no need to automate anything
+It should cover basic edge cases like saving empty items or duplicate items
+And example test might be: "Input: Save user with no last name. Expected result: user is not saved, message indicating last name is required is displayed."
+The results of executing your test plan (Successes should be a simple success, failures should be a few sentences to a couple paragraphs)
+Did all of your tests pass?
+If tests failed, detail how and try to explain why
+Discuss how you used the idea of templating to display data.(1 or 2 paragraphs)
+Discuss if you had it to do over again, what changes you might make. (2 or 3 paragraphs)
+Notes about future projects:
+
+Looking to the future, you should pick a subject that is sufficiently complex and interests you as you may be able to leverage some of this early work into a final project. To that end, think about a piece of software that would have to keep track of at least 3 different kinds of objects that have several properties each. (including lists of things, for example a user might have a list of favorite programming languages in a programming job board) In relational database terms (like MySQL) there should be at least one one-to-many or many-to-many relationship. You will also need to implement user accounts for the final project.
+
+Additionally it would be good if there was a use for the data (or interaction with the data) outside of your user interface as an upcoming assignment will require you to make an API rather than a web page. For example, a company might want to design a custom HR application specific to their needs that pulled information from the previously mentioned job board. They would use an API to do such a task.
