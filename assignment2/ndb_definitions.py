@@ -3,7 +3,7 @@ from google.appengine.ext import ndb
 class Location(ndb.Model):
 	# Class that repesents pick up game locations
 	name = ndb.StringProperty(required=True)
-	#comments = ndb.KeyProperty(repeated=True)
+	comments = ndb.KeyProperty(repeated=True)
 	active = ndb.BooleanProperty(required=True)
 	image = ndb.BlobProperty(required=True)
 	rating = ndb.IntegerProperty(required=True)
@@ -15,6 +15,6 @@ class Author(ndb.Model):
 
 class Comment(ndb.Model):
 	# Class representing user comments
-	#author = ndb.StructuredProperty(Author)
+	author = ndb.StructuredProperty(Author)
 	date = ndb.DateTimeProperty(auto_now_add=True) # Gives the object a datetime stamp corresponding to when it was created
 	body = ndb.StringProperty(indexed=False)

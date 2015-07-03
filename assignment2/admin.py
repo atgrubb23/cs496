@@ -45,6 +45,27 @@ class AddLocation(blobstore_handlers.BlobstoreUploadHandler):
 			Admin(self.request, self.response).post()
 
 class EditLocation(blobstore_handlers.BlobstoreUploadHandler):
+	def __init__(self, request, response):
+		self.initialize(request,response)
+		self.templateValues = {}
+		self.templateValues['editUrl'] = blobstore.create_upload_url( '/edit/location' )
+
+	def get(self):
+		locationKey = ndb.Key(urlsafe=self.request.get('key'))
+		location = locationKey.get()
+		if location.image:
+			self.templateValues['img_url'] = images.get_serving_url(location.image, crop = True, size = 64)
+		self.templateValues['location'] = location
+		'''
+		commentBoxes = []
+		for c in comments:
+			if c.key in location.comments:
+				commentBoxes.append({'body': c.body, 'date': c.date})
+			else:
+				commentBoxes.append({'name': })
+		'''
+		self.render('edit.html', self.templateValues)
+
 	def post(self):
 		locationKey = ndb.Key(urlsafe=self.request.get('key'))
 		location = locationKey.get()

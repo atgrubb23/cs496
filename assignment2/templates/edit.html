@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset='utf-8'>
+		<title>Edit {{ location.name }}</title>
+	</head>
+
+	<body>
+		
+		<form action="{{ editUrl }}" method="POST" enctype="multipart/form-data">
+			<input type='hidden' name='key' value='{{ location.key.urlsafe() }}'>
+			{% if location.name %}
+				<fieldset>
+					<legend>Name</legend>
+					<input type='text' name='locationName' value='{{ location.name }}'>
+				</fieldset>
+			{% endif %}
+				<fieldset>
+					<legend>Active</legend>
+					{% if location.active == True %}
+						<input type='checkbox' name='locationActive' value='active' checked>
+					{% else %}
+						<input type='checkbox' name='locationActive' value='active'>
+					{% endif %}
+				</fieldset>
+			{% if location.image %}
+				<fieldset>
+					<legend>Image</legend>
+					{% if img_url %}
+						<img src='{{ img_url }}'>
+					{% endif %}
+					<legend>Change image?</legend>
+					<input type='file' name='image'><br>
+					<input type='radio' name='image-action' value='none' checked>No<br>
+					<input type='radio' name='image-action' value='remove'>Remove<br>
+					<input type='radio' name='image-action' value='change'>Change<br>
+				</fieldset>
+			{% endif %}
+			<fieldset>
+				<legend>Rating</legend>
+				{% if location.rating %}
+					{% for i in range(1, 5) %}
+						{% if location.rating == i %}
+							<input type='radio' name='rating' value='{{ i }}' checked>{{ i }}
+						{% else %}
+							<input type='radio' name='rating' value='{{ i }}'>{{ i }}
+						{%endif%}
+					{% endfor %}
+				{% endif %}
+			</fieldset>
+			<input type='submit' value='Update'>
+		</form>
+		<form method='GET'>
+			<button type='submit' name='key' value='{{ key }}'>Cancel</button>
+		</form>
+	</body>
+</html>

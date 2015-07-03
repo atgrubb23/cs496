@@ -13,5 +13,5 @@ app = webapp2.WSGIApplication([
 	('/view', 'view.View'),
 	('/location/view', 'view.View'),
 	('/location/add', 'admin.AddLocation'),
-	('/edit', 'admin.EditLocation')
+	('/edit', 'edit.ViewEditLocation')
 ], debug = True, config = config)
