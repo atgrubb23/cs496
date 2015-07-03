@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset='utf-8'>
+		<title>Location Manager</title>
+	</head>
+
+	<body>
+		<form action='{{ uploadUrl }}' method='POST' enctype="multipart/form-data">
+			<input type='hidden' name='action' value='addLocation'>
+			<fieldset>
+				<legend>Location Name</legend>
+				<input type='text' name='locationName' required>
+			</fieldset>
+			<fieldset>
+				<legend>Active</legend>
+				<input type='checkbox' name='locationActive' checked='checked'>
+				<legend>Inactive</legend>
+				<input type='checkbox' name='locationActive'>
+			</fieldset>
+			<fieldset>
+				<legend>Upload an image</legend>
+				<input type='file' name='image' required>
+			</fieldset>
+			<fieldset>
+				<legend>Add Location</legend>
+				<input type='submit' value='Add'>
+			</fieldset>
+		</form>
+
+		{% if locations %}
+		<div>
+			<h3>Locations</h3>
+			{% for loc in locations %}
+				<a href='/view?key={{ loc.key }}'>{{ loc.name }}</a>
+			{% endfor %}
+		</div>
+		{% endif %}
+		{% if active %}
+		<div>
+			<h3>IT IS... {{ active }}</h3>
+		</div>
+		{% endif %}
+
+		{% if message %}
+		<section>
+			<h3>Result</h3>
+			<p>{{ message }}
+		</section>
+		{% endif %}
+	</body>
+</html>

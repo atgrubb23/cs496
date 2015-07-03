@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset='utf-8'>
+		<title>A Location</title>
+	</head>
+
+	<body>
+		{% if img_url %}
+		<img src='{{ img_url }}'>
+		{% endif %}
+		<form action="{{ viewUrl }}" method="POST" enctype="multipart/form-data">
+			<input type='hidden' name='key' value='{{ location.key.urlsafe() }}'>
+			<legend>Change image?</legend>
+			<input type='radio' name='image-action' value='none'>No<br>
+			<input type='radio' name='image-action' value='remove'>Remove<br>
+			<input type='radio' name='image-action' value='change'>Change<br>
+			<fieldset>
+				<legend>Upload image</legend>
+				<input type='file' name='image'>
+			</fieldset>
+			<input type='submit' value='Update'>
+		</form>
+	</body>
+</html>

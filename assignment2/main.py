@@ -1,6 +1,17 @@
 import webapp2
 
+config = {'default-group':'base-data'}
+"""
 app = webapp2.WSGIApplication([
-	('/', 'index.MainPage'),
-	('/sign', 'index.LocationComments')
+	('/', 'location.LocationPage'),
+	('/comment', 'location.LocationComments')
 	], debug=True)
+"""
+app = webapp2.WSGIApplication([
+	('/', 'admin.Admin'),
+	('/admin', 'admin.Admin'),
+	('/view', 'view.View'),
+	('/location/view', 'view.View'),
+	('/location/add', 'admin.AddLocation'),
+	('/edit', 'admin.EditLocation')
+], debug = True, config = config)

@@ -18,14 +18,14 @@
           {% endif %}
         </b> wrote:
       {% else %}
-       Anonymous wrote:
+        Anonymous wrote:
       {% endif %}
       <blockquote>{{ comment.body }}</blockquote>
     {% endfor %}
 
-    <form action="/sign?locationName={{ locationName }}" method="post">
+    <form action="/comment?locationName={{ locationName }}" method="post">
       <div><textarea name="body" rows="3" cols="60"></textarea></div>
-      <div><input type="submit" value="makeComment"></div>
+      <div><input type="submit" value="Comment"></div>
     </form>
 
     <hr>
@@ -35,6 +35,15 @@
       <input type="submit" value="switch">
     </form>
 
+    <div>
+      {% for loc in locations %}
+        <div>{{ loc.name }}</div>
+      {% endfor %}
+    </div>
+    {# User login/logout display #}
+    {% if user %}
+      {{ user.nickname() }}
+    {% endif %}
     <a href="{{ url|safe }}">{{ url_linktext }}</a>
 
   </body>
