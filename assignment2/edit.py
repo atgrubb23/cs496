@@ -34,6 +34,7 @@ class EditLocation(blobstore_handlers.BlobstoreUploadHandler):
 		else:
 			location.active = False
 		location.rating = int(self.request.get('rating'))
+		location.description = str(self.request.get('description'))
 		if self.request.get('image-action') == 'remove':
 			location.image = None
 		elif self.request.get('image-action') == 'change':

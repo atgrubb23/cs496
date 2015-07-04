@@ -3,6 +3,7 @@
 	<head>
 		<meta charset='utf-8'>
 		<title>Location Manager</title>
+		<link type="text/css" rel="stylesheet" href="/stylesheets/main.css"/>
 	</head>
 
 	<body>
@@ -29,9 +30,10 @@
 				<input type='radio' name='rating' value='5' checked='checked'>5
 			</fieldset>
 			<fieldset>
-				<legend>Add Location</legend>
-				<input type='submit' value='Add'>
+				<legend>Description</legend>
+				<textarea name='description' rows='5' cols='60' placeholder='Enter a description...'></textarea>
 			</fieldset>
+			<input type='submit' value='Add'>
 		</form>
 
 		{% if locations %}

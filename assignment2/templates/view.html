@@ -3,6 +3,7 @@
 	<head>
 		<meta charset='utf-8'>
 		<title>{{ location.name }}</title>
+		<link type="text/css" rel="stylesheet" href="/stylesheets/main.css"/>
 	</head>
 
 	<body>
@@ -24,21 +25,9 @@
 			<h3>Location Rating</h3>
 			<p>{{ location.rating }} Stars
 		{% endif %}
-		{% if location.comments %}
-			{% for comm in location.comments %}
-				{% if comm.author %}
-        			<b>
-          			{% if user and user.user_id() == comm.author.identity %}
-            			You
-          			{% else %}
-            			{{ comm.author.email }}
-          			{% endif %}
-        			</b> wrote:
-      			{% else %}
-        			Anonymous wrote:
-      			{% endif %}
-      			<blockquote>{{ comm.body }}</blockquote>
-			{% endfor %}
+		{% if location.description %}
+			<h3>Description</h3>
+			<blockquote>{{ location.description }}</blockquote>
 		{% endif %}
 		<br><br><b><a href='/edit?key={{ key }}'>Edit Location</a>
 	</body>

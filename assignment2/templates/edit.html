@@ -3,6 +3,7 @@
 	<head>
 		<meta charset='utf-8'>
 		<title>Edit {{ location.name }}</title>
+		<link type="text/css" rel="stylesheet" href="/stylesheets/main.css"/>
 	</head>
 
 	<body>
@@ -51,9 +52,17 @@
 					{% endfor %}
 				{% endif %}
 			</fieldset>
+			<fieldset>
+				<legend>Description</legend>
+				{% if location.description %}
+					<textarea name='description' rows='5' cols='60'>{{ location.description }}</textarea>
+				{% else %}
+					<textarea name='description' rows='5' cols='60' placeholder='Enter a description...'></textarea>
+				{% endif %}
+			</fieldset>
 			<input type='submit' value='Update'>
 		</form>
-		<form method='GET'>
+		<form action='/view?key={{ key }}' method='GET'>
 			<button type='submit' name='key' value='{{ key }}'>Cancel</button>
 		</form>
 	</body>
