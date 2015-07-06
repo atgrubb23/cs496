@@ -10,7 +10,7 @@ class View(BaseHandler):
 		locationKey = ndb.Key(urlsafe=self.request.get('key'))
 		location = locationKey.get()
 		if location.image:
-			self.templateValues['img_url'] = images.get_serving_url(location.image, crop = True, size = 64)
+			self.templateValues['img_url'] = images.get_serving_url(location.image)
 		self.templateValues['location'] = location
 		self.templateValues['key'] = location.key.urlsafe()
 		'''
