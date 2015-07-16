@@ -23,10 +23,11 @@ class Location(ndb.Model):
 
 	def to_dict(self):
 		all_comments = {}
-		i = 1
+		a = 1
 		for c in self.comments:
-			all_comments['comment' + str(i)] = {"author": c.author, "body": c.body, "timestamp": str(c.timestamp)}
-			++i
+			all_comments['comment' + str(a)] = {"author": c.author, "body": c.body, "timestamp": str(c.timestamp)}
+			a += 1
+
 		return {
 			'id': self.key.id(),
 			'name': self.name,
@@ -36,7 +37,7 @@ class Location(ndb.Model):
 			'rating': self.rating,
 			'comments': all_comments
 		}
-		
+
 class User(ndb.Model):
 	# Class that represents users who will utilize locations
 	name = ndb.StringProperty(required=True)

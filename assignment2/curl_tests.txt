@@ -1,7 +1,33 @@
+=================== LOCAL HOST TESTING ========================================
 curl --data "name=Loc1" localhost:8080/locations
 
 curl -H "Content-Type: application/json" -X POST -d '{"name":"Park 7", "description":"Park number 7 in town Foob, AR", "rating":"3", "comments":{"comment1":{"author":"Alan Grubb", "body":"This place was okay."}, "comment2":{"author":"Whitney J", "body":"I liked it."}}}' localhost:8080/locations
 
-curl localhost:8080/locations/6509108836433920
+curl localhost:8080/locations
 
-curl -H "Content-type: application/json" -X PUT -d '{"comments":{"comment1":{"author":"alan", "body":"some shit."}, "comment4":{"author":"albus", "body":"some more shit."}}}' localhost:8080/locations/5523946417946624/comments
+curl localhost:8080/locations/<INSERT_ID_HERE>
+
+curl localhost:8080/locations/<INSERT_ID_HERE>/comments
+
+curl -H "Content-type: application/json" -X PUT -d '{"comments":{"comment1":{"author":"alan", "body":"some stuff."}, "comment4":{"author":"albus", "body":"some more stuff."}}}' localhost:8080/locations/5523946417946624/comments
+
+
+=================== CLOUD TESTING =============================================
+---- GET All Locations --------------------------------
+curl http://cs496-assignment2-993.appspot.com/locations
+
+---- GET All Comments for Location --------------
+curl http://cs496-assignment2-993.appspot.com/locations/<INSERT_ID_HERE>/comments
+
+---- POST New Location ------------------------------------------------------------------------------------
+curl -H "Content-type: application/json" --data '{"name":"Testing 1"}' http://cs496-assignment2-993.appspot.com/locations
+
+---- POST New Location With Comments (StructuredProperty AKA relationship) --------------------------------
+curl -H "Content-Type: application/json" -X POST -d '{"name":"Park 7", "description":"Park number 7 in town Foob, AR", "rating":"3", "comments":{"comment1":{"author":"Alan Grubb", "body":"This place was okay."}, "comment2":{"author":"Whitney J", "body":"I liked it."}}}' http://cs496-assignment2-993.appspot.com/locations
+
+---- PUT Comment at Existing Location ---------------------------------------------------------------------------
+curl -H "Content-type: application/json" -X PUT -d '{"comments":{"comment1":{"author":"alan", "body":"some stuff."}, "comment4":{"author":"albus", "body":"some more stuff."}}}' http://cs496-assignment2-993.appspot.com/locations/<INSERT_ID_HERE>/comments
+
+	5649391675244544
+---- DELETE Existing Location ----------------------------------------------------
+curl -X DELETE http://cs496-assignment2-993.appspot.com/locations/<INSERT_ID_HERE>

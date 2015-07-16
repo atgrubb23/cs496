@@ -131,8 +131,11 @@ class LocationComments(BaseHandler):
 		else:
 			if 'lid' in args:
 				loc = ndb.Key(ndb_definitions.Location, int(args['lid'])).get().to_dict()
-				comments = loc['comments']
-				self.response.write(json.dumps(comments))
+				comment = loc['comments']
+				#for c in loc['comments']:
+				self.response.write(json.dumps(comment))
+				self.response.write('\n')
+				self.response.write(str(len(comment)))
 				self.response.write('\n')
 			else:
 				message = 'Invalid request. An ID must be specified to retrieve comments for a Location.'
