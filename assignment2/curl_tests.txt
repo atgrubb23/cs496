@@ -1,0 +1,7 @@
+curl --data "name=Loc1" localhost:8080/locations
+
+curl -H "Content-Type: application/json" -X POST -d '{"name":"Park 7", "description":"Park number 7 in town Foob, AR", "rating":"3", "comments":{"comment1":{"author":"Alan Grubb", "body":"This place was okay."}, "comment2":{"author":"Whitney J", "body":"I liked it."}}}' localhost:8080/locations
+
+curl localhost:8080/locations/6509108836433920
+
+curl -H "Content-type: application/json" -X PUT -d '{"comments":{"comment1":{"author":"alan", "body":"some shit."}, "comment4":{"author":"albus", "body":"some more shit."}}}' localhost:8080/locations/5523946417946624/comments

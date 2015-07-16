@@ -14,14 +14,6 @@ class ViewEditLocation(BaseHandler):
 			self.templateValues['img_url'] = images.get_serving_url(location.image)
 		self.templateValues['location'] = location
 		self.templateValues['key'] = location.key.urlsafe()
-		'''
-		commentBoxes = []
-		for c in comments:
-			if c.key in location.comments:
-				commentBoxes.append({'body': c.body, 'date': c.date})
-			else:
-				commentBoxes.append({'name': })
-		'''
 		self.render('edit.html', self.templateValues)
 
 class EditLocation(blobstore_handlers.BlobstoreUploadHandler):
